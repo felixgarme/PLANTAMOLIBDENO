@@ -1,0 +1,7 @@
+/METSOS/METSO.blend
+/METSOS/METSO.blend1
+/box/
+# Archivos de Blender grandes
+*.blend
+*.blend1
+*.zip
