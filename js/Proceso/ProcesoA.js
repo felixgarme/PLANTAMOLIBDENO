@@ -36,6 +36,8 @@ if (!window.botonesVACreados) {
       .v3d-pro-button.active {
           /* Espacio a la derecha para la flecha */
           padding-right: 30px !important; 
+          font-family: AA Smart Sans;
+
       }
 
       .v3d-pro-button::after {
@@ -49,6 +51,7 @@ if (!window.botonesVACreados) {
           opacity: 0; /* Oculta por defecto */
           transition: opacity 0.3s ease, transform 0.3s ease;
           pointer-events: none; /* No interferir con clics */
+          font-family: AA Smart Sans;
       }
 
       .v3d-pro-button.active::after {

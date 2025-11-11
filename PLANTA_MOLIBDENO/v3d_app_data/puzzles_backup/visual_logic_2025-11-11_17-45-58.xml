@@ -8,7 +8,7 @@
       <field name="FADE_ANNOTATIONS">TRUE</field>
     </block>
   </tab>
-  <tab name="General" type="CommonTab" active="false" scrollx="1080.5" scrolly="305.5" scale="1">
+  <tab name="General" type="CommonTab" active="true" scrollx="1080.5" scrolly="305.5" scale="1">
     <variables xmlns="https://developers.google.com/blockly/xml">
       <variable id="b4?;`kL}1s0pO%j{xPUi">hideObj</variable>
     </variables>
@@ -136,7 +136,7 @@
                                                       </value>
                                                       <statement name="DO">
                                                         <block type="zoomCameraToObject" id="7+F:qhUIAqA2c-lf0f}/">
-                                                          <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="true"></mutation>
+                                                          <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="false"></mutation>
                                                           <value name="OBJECT">
                                                             <shadow type="objectList" id="rZZE@EXIpK)0q[^*U:)H">
                                                               <field name="FIELDNAME">general</field>
@@ -147,7 +147,7 @@
                                                               <field name="NUM">0.5</field>
                                                             </shadow>
                                                           </value>
-                                                          <statement name="DO">
+                                                          <next>
                                                             <block type="hide" id="#zKw~:e6;`?[gb{W(q2r">
                                                               <value name="VALUE">
                                                                 <shadow type="objectList" id="oCy;Swt3}0-g0[apk6jQ">
@@ -155,7 +155,7 @@
                                                                 </shadow>
                                                               </value>
                                                             </block>
-                                                          </statement>
+                                                          </next>
                                                         </block>
                                                       </statement>
                                                     </block>
@@ -3116,7 +3116,7 @@
       </statement>
     </block>
   </tab>
-  <tab name="D" type="CommonTab" active="true" scrollx="658.4423164007897" scrolly="-1292.5495717512815" scale="0.9675299662319494">
+  <tab name="D" type="CommonTab" active="false" scrollx="1223.4423164007897" scrolly="336.2004282487185" scale="0.9675299662319494">
     <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="4c$7`(f8?bb5}edk9*hd" x="-384" y="-348">
       <field name="NAME">vD1</field>
       <comment pinned="false" h="80" w="160">Describe this function...</comment>
@@ -3319,44 +3319,6 @@
                                                           <field name="TEXT" editor-height="1" editor-width="520">crearCaminoFlechas("ruta_D4",  ["D4-1",  "D4-2",  "D4-3",  "D4-4"]);</field>
                                                         </shadow>
                                                       </value>
-                                                      <next>
-                                                        <block type="setTimeout" id="bi5=ZeP+qK?Cdpux,`ve">
-                                                          <value name="VALUE">
-                                                            <shadow type="math_number" id="Zk}]091m.]@vPbfvhFN^">
-                                                              <field name="NUM">0.2</field>
-                                                            </shadow>
-                                                          </value>
-                                                          <statement name="DO">
-                                                            <block type="execScript" id="d}PqR*+6I|am38MFYF^-">
-                                                              <value name="TEXT">
-                                                                <shadow type="textMultiline" id="jTgUSO2axL~#KvjAN8kH">
-                                                                  <field name="HIGHLIGHT_MODE">javascript</field>
-                                                                  <field name="TEXT" editor-height="1" editor-width="644.0271662771755">crearCaminoFlechas("ruta_D1",  ["D1-1",  "D1-2",  "D1-3"]);</field>
-                                                                </shadow>
-                                                              </value>
-                                                              <next>
-                                                                <block type="setTimeout" id="ayRt?mw2RZp)1*PFX1KP">
-                                                                  <value name="VALUE">
-                                                                    <shadow type="math_number" id="TYbqsg@iWR-+ol#7;W`x">
-                                                                      <field name="NUM">0.2</field>
-                                                                    </shadow>
-                                                                  </value>
-                                                                  <statement name="DO">
-                                                                    <block type="execScript" id="dj5BY8a*t,DR!%ORouHw">
-                                                                      <value name="TEXT">
-                                                                        <shadow type="textMultiline" id="xq@SHo;.t]u?|#vJ=G,f">
-                                                                          <field name="HIGHLIGHT_MODE">javascript</field>
-                                                                          <field name="TEXT" editor-height="1" editor-width="520">crearCaminoFlechas("ruta_D2",  ["D2-1",  "D2-2",  "D2-3",  "D2-4"]);</field>
-                                                                        </shadow>
-                                                                      </value>
-                                                                    </block>
-                                                                  </statement>
-                                                                </block>
-                                                              </next>
-                                                            </block>
-                                                          </statement>
-                                                        </block>
-                                                      </next>
                                                     </block>
                                                   </statement>
                                                 </block>

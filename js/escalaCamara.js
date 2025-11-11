@@ -11,43 +11,70 @@ camera.updateProjectionMatrix();
 // Crear contenedor principal
 var uiContainer = document.createElement('div');
 uiContainer.style.position = 'fixed';
-uiContainer.style.top = '10px';
-uiContainer.style.right = '60px';
+uiContainer.style.top = '10px'; // 30% menos
+uiContainer.style.right = '60px'; // 30% menos
 uiContainer.style.zIndex = '10000';
 uiContainer.style.fontFamily = 'sans-serif';
 document.body.appendChild(uiContainer);
 
 // --- Botón principal ---
 var btn = document.createElement('button');
-btn.textContent = 'Zoom';
-btn.style.padding = '11px 14px';
-btn.style.border = 'none';
-btn.style.borderRadius = '10px';
-btn.style.background = 'rgba(255,255,255,0.9)';
-btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
-btn.style.fontSize = '16px';
+btn.textContent = ' Zoom';
+btn.style.padding = '7px 10px'; // reducido 30%
+btn.style.border = '1px solid #6B8BDE';
+btn.style.borderRadius = '35px'; // 30% menos de 50px
+btn.style.background = '#E5EFF9';
+btn.style.boxShadow = '0px 3px 13px 1.4px #6B8BDE66'; // suavizado proporcional
 btn.style.cursor = 'pointer';
+btn.style.width = '103px'; // 70% de 147px
+btn.style.height = '41px'; // 70% de 59px
+btn.style.opacity = '1';
+btn.style.display = 'flex';
+btn.style.alignItems = 'center';
+btn.style.justifyContent = 'center';
+btn.style.gap = '5.6px'; // 70% de 8px
+
+// --- Tipografía personalizada ---
+btn.style.fontFamily = '"AA Smart Sans", sans-serif';
+btn.style.fontWeight = '600';
+btn.style.fontStyle = 'normal';
+btn.style.fontSize = '14px'; // 70% de 20px
+btn.style.lineHeight = '85px'; // 70% de 121px
+btn.style.letterSpacing = '0';
+btn.style.textAlign = 'center';
+btn.style.verticalAlign = 'middle';
+btn.style.color = '#031795'; // color del texto
+
 uiContainer.appendChild(btn);
+
+// --- Imagen de lupa al principio ---
+var img = document.createElement('img');
+img.src = '../img/lupa.png'; // ruta actualizada
+img.style.width = '14px'; // 70% de 20px
+img.style.height = '14px';
+img.style.objectFit = 'contain';
+btn.prepend(img);
 
 // --- Cuadro flotante ---
 var panel = document.createElement('div');
 panel.style.position = 'absolute';
-panel.style.top = '50px';
+// 🔹 Aumentamos la separación entre el botón y el cuadro
+panel.style.top = '55px'; // antes: 35px → más separado del botón
 panel.style.right = '0';
-panel.style.width = '200px';
-panel.style.padding = '10px';
-panel.style.borderRadius = '10px';
+panel.style.width = '140px'; // 70% de 200px
+panel.style.padding = '7px'; // 70% de 10px
+panel.style.borderRadius = '7px'; // 70% de 10px
 panel.style.background = 'rgba(0,0,0,0.8)';
 panel.style.color = 'white';
 panel.style.display = 'none';
-panel.style.boxShadow = '0 2px 8px rgba(0,0,0,0.5)';
+panel.style.boxShadow = '0 1.4px 5.6px rgba(0,0,0,0.5)'; // suavizado proporcional
 uiContainer.appendChild(panel);
 
 // Etiqueta
 var label = document.createElement('div');
 label.textContent = 'Campo de visión (FOV)';
-label.style.fontSize = '14px';
-label.style.marginBottom = '6px';
+label.style.fontSize = '10px'; // 70% de 14px
+label.style.marginBottom = '4px'; // 70% de 6px
 panel.appendChild(label);
 
 // Slider
@@ -63,7 +90,7 @@ panel.appendChild(slider);
 var valLabel = document.createElement('div');
 valLabel.textContent = slider.value;
 valLabel.style.textAlign = 'center';
-valLabel.style.marginTop = '4px';
+valLabel.style.marginTop = '3px'; // 70% de 4px
 panel.appendChild(valLabel);
 
 // Evento para abrir/cerrar el panel

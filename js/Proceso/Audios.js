@@ -21,31 +21,37 @@
     if(botonMute) return;
 
     botonMute = document.createElement("button");
-    botonMute.textContent = "🔊";
+    const iconoImg = document.createElement("img");
+    iconoImg.src = "../img/volumen_on.png";
+    iconoImg.style.width = "100%";
+    iconoImg.style.height = "100%";
+    iconoImg.style.objectFit = "contain";
+    iconoImg.style.pointerEvents = "none";
+    botonMute.appendChild(iconoImg);
+
     botonMute.style.position = "fixed";
-    botonMute.style.top = "50%";
+    botonMute.style.top = "calc(50% - 30px)";
     botonMute.style.right = "15px";
     botonMute.style.transform = "translateY(-50%)";
     botonMute.style.zIndex = "99999";
-    botonMute.style.fontSize = "22px";
     botonMute.style.border = "none";
     botonMute.style.borderRadius = "50%";
     botonMute.style.width = "50px";
     botonMute.style.height = "50px";
     botonMute.style.cursor = "pointer";
-    botonMute.style.background = "rgba(255,0,0,0.85)";
-    botonMute.style.color = "#fff";
-    botonMute.style.boxShadow = "0 0 10px rgba(0,0,0,0.4)";
+    botonMute.style.background = "#E5EFF9";
+    botonMute.style.boxShadow = "0 0 10px rgba(0,0,0,0.3)";
     botonMute.style.transition = "all 0.25s ease";
+    botonMute.style.opacity = "1";
 
     botonMute.onmouseenter = () => botonMute.style.transform = "translateY(-50%) scale(1.1)";
     botonMute.onmouseleave = () => botonMute.style.transform = "translateY(-50%) scale(1)";
 
     botonMute.onclick = ()=>{
       muteado = !muteado;
-      botonMute.textContent = muteado ? "🔇" : "🔊";
       audiosActivos.forEach(v=> v.muted = muteado );
-      botonMute.style.background = muteado ? "rgba(100,100,100,0.85)" : "rgba(255,0,0,0.85)";
+      botonMute.style.background = muteado ? "#031794" : "#E5EFF9";
+      iconoImg.src = muteado ? "../img/volumen_off.png" : "../img/volumen_on.png";
     };
 
     document.body.appendChild(botonMute);
@@ -54,25 +60,39 @@
   // 🔹 Crea un botón para ver el video (si es mp4)
   function crearBotonVerVideo(ruta, elementoVideo){
     const btnVer = document.createElement("button");
-    btnVer.textContent = "🎥";
+    const iconoVer = document.createElement("img");
+    iconoVer.src = "../img/video_off.png";
+    iconoVer.style.width = "100%";
+    iconoVer.style.height = "100%";
+    iconoVer.style.objectFit = "contain";
+    iconoVer.style.pointerEvents = "none";
+    btnVer.appendChild(iconoVer);
+
     btnVer.style.position = "fixed";
-    btnVer.style.top = "calc(50% + 70px)";
+    btnVer.style.top = "calc(50% + 40px)";
     btnVer.style.right = "15px";
     btnVer.style.transform = "translateY(-50%)";
     btnVer.style.zIndex = "99999";
-    btnVer.style.fontSize = "22px";
     btnVer.style.border = "none";
     btnVer.style.borderRadius = "50%";
     btnVer.style.width = "50px";
     btnVer.style.height = "50px";
     btnVer.style.cursor = "pointer";
-    btnVer.style.background = "rgba(0,0,255,0.8)";
-    btnVer.style.color = "#fff";
-    btnVer.style.boxShadow = "0 0 10px rgba(0,0,0,0.4)";
+    btnVer.style.background = "#E5EFF9";
+    btnVer.style.boxShadow = "0 0 10px rgba(0,0,0,0.3)";
     btnVer.style.transition = "all 0.25s ease";
+    btnVer.style.opacity = "1";
 
     btnVer.setAttribute("data-video-ver", ruta);
-    btnVer.onclick = ()=> mostrarVideoPopup(ruta, elementoVideo);
+    btnVer.onclick = ()=>{
+      btnVer.style.background = "#031794";
+      iconoVer.src = "../img/video_on.png";
+      mostrarVideoPopup(ruta, elementoVideo);
+      setTimeout(()=>{
+        btnVer.style.background = "#E5EFF9";
+        iconoVer.src = "../img/video_off.png";
+      },800);
+    };
 
     document.body.appendChild(btnVer);
   }
@@ -83,8 +103,8 @@
     elementoOriginal.muted = true;
     muteado = true;
     if(botonMute){
-      botonMute.textContent = "🔇";
-      botonMute.style.background = "rgba(100,100,100,0.85)";
+      botonMute.style.background = "#031794";
+      botonMute.querySelector("img").src = "../img/volumen_off.png";
     }
 
     const overlay = document.createElement("div");
@@ -125,7 +145,6 @@
     btnCerrar.onclick = ()=>{
       vidPopup.pause();
       overlay.remove();
-      // Al cerrar, vuelve el mute al estado global
       elementoOriginal.muted = muteado;
     };
 
@@ -141,10 +160,8 @@
     let elemento;
 
     if(ruta.toLowerCase().endsWith(".mp3")){
-      // 🎵 Si es MP3, usar etiqueta <audio>
       elemento = document.createElement("audio");
     } else {
-      // 🎬 Si es MP4 u otro, usar <video> (solo audio)
       elemento = document.createElement("video");
       elemento.style.display = "none";
     }
@@ -156,7 +173,6 @@
     elemento.volume = 1.0;
     elemento.playsInline = true;
 
-    // asegura que se inicie al primer clic (por políticas de navegador)
     const iniciar = ()=>{
       elemento.play().catch(()=>{});
       document.removeEventListener("click", iniciar);
@@ -166,7 +182,6 @@
     document.body.appendChild(elemento);
     audiosActivos.push(elemento);
 
-    // si es un video, crear el botón para verlo
     if(ruta.toLowerCase().endsWith(".mp4")){
       crearBotonVerVideo(ruta, elemento);
     }
@@ -182,7 +197,6 @@
     });
     audiosActivos.length = 0;
 
-    // Eliminar botones
     if(botonMute){ botonMute.remove(); botonMute = null; }
     const btnsVer = document.querySelectorAll("button[data-video-ver]");
     btnsVer.forEach(b=>b.remove());

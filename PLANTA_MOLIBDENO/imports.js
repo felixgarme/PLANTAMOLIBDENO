@@ -30,6 +30,7 @@ import("../js/objsInfo.js");//Informacion de los objetos y de la camara
 import("../js/crearTexto.js");//Raycaster para seleccionar objetos
 import("../js/caminos.js");
 import("../js/resaltadoEdificios.js");
+
 //PROCESO///////////////////////////////////////////////////////////////////////////////////////////
 
 import("../js/Proceso/Proceso1.js");
