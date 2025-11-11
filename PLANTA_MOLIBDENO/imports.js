@@ -21,7 +21,7 @@ import("../js/camara.js");
 import("../js/zoomCamara.js");//Zoom de la camara MAXIMO
 
 // import("../js/CamaraLibre.js");
-
+import("../js/plantas.js");
 
 //HERRAMIENTAS//////////////////////////////////////////////////////////////////////////////////////
 
