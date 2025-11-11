@@ -10,12 +10,13 @@
 
     // ----- Botones VA -----
     const botonesVA=[
-      {texto:'Entrada',proc:'vA1'},
-      {texto:'Lavado de gases',proc:'vA2'},
+      {texto:'Entrada Lavado de Gases',proc:'vA1'},
+      {texto:'Cartel Lavado de Gases',proc:'vA2'},
       {texto:'Tanques de Nash',proc:'vA3'},
-      {texto:'Tanques de Nash cartel',proc:'vA4'},
-      {texto:'Zona de Ácido cartel',proc:'vA5'},
-      {texto:'Zona de Ácido',proc:'vA6'}
+      {texto:'Cartel Tanques de Nash',proc:'vA4'},
+      {texto:'Zona de Ácido',proc:'vA6'},
+      {texto:'Zona de Ácido cartel',proc:'vA5'},//
+     
     ];
     window.createV3DButtonList('VA',botonesVA,{
       containerId:'miContenedorBotonesVA',
@@ -25,7 +26,7 @@
 
     // ----- Botones VB -----
     const botonesVB=[
-      {texto:'Ducha 1',proc:'vB1'},
+      {texto:'Ducha 1 (Visual)',proc:'vB1'},
       {texto:'Ducha 2',proc:'vB2'},
       {texto:'Ducha 3',proc:'vB3'},
       {texto:'Ducha 4',proc:'vB4'},

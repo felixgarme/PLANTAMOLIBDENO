@@ -4,19 +4,23 @@
 var app = v3d.apps[0];
 var camera = app.camera;
 
+// Establecer FOV por defecto
+camera.fov = 50;
+camera.updateProjectionMatrix();
+
 // Crear contenedor principal
 var uiContainer = document.createElement('div');
 uiContainer.style.position = 'fixed';
-uiContainer.style.top = '20px';
-uiContainer.style.right = '20px';
+uiContainer.style.top = '10px';
+uiContainer.style.right = '60px';
 uiContainer.style.zIndex = '10000';
 uiContainer.style.fontFamily = 'sans-serif';
 document.body.appendChild(uiContainer);
 
 // --- Botón principal ---
 var btn = document.createElement('button');
-btn.textContent = '🔍 Zoom';
-btn.style.padding = '10px 14px';
+btn.textContent = 'Zoom';
+btn.style.padding = '11px 14px';
 btn.style.border = 'none';
 btn.style.borderRadius = '10px';
 btn.style.background = 'rgba(255,255,255,0.9)';
@@ -50,7 +54,7 @@ panel.appendChild(label);
 var slider = document.createElement('input');
 slider.type = 'range';
 slider.min = '20';
-slider.max = '100';
+slider.max = '80';
 slider.value = camera.fov.toFixed(0);
 slider.style.width = '100%';
 panel.appendChild(slider);
