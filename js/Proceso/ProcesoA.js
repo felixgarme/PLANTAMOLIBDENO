@@ -24,6 +24,7 @@ if (!window.botonesVACreados) {
           cursor: wait !important;
           pointer-events: none !important;
           transition: opacity 0.2s ease !important;
+          font-family: AA Smart Sans;
       }
 
       /* --- INICIO DE LA MODIFICACIÓN DE LA FLECHA --- */
@@ -57,6 +58,7 @@ if (!window.botonesVACreados) {
       .v3d-pro-button.active::after {
           opacity: 1; /* Visible en el botón activo */
           transform: translateY(-50%) scale(1);
+          font-family: AA Smart Sans;
       }
       /* --- FIN DE LA MODIFICACIÓN DE LA FLECHA --- */
     `;

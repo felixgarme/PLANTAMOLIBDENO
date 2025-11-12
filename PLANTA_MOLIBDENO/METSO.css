@@ -50,6 +50,6 @@ body {
     text-align: center;
     user-select: none;
     background: rgba(0, 0, 0, 0.8);
-    background: linear-gradient(90deg, #FF0000 0%, #351EE0 44.5%, #347FF6 56%, #1F87C6 100%);
+    background: #031795;
     border-radius: 16px;
 }
